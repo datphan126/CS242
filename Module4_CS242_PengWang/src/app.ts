@@ -5,9 +5,11 @@ import mongoose from 'mongoose';
 
 import orderController from './controllers/order-controller';
 import newUserController from './controllers/new-user-controller';
-import logger from './middlewares/logging';
+import findUserController from './controllers/find-user-controller';
 
 dotenv.config();
+
+console.log(process.env.DB_URI);
 
 // Initialize MongoDB
 mongoose.connect(process.env.DB_URI as string, { useNewUrlParser: true });
@@ -31,5 +33,8 @@ app.get('/', (req, res) => res.render('index', {
 app.get('/order', orderController);
 
 app.get('/userForm', (req, res) => res.render('user-form'));
+
+app.post('/user', newUserController);
+app.get('/user', findUserController);
 
 app.listen(3000, () => console.log('The server is running on http://localhost:3000'));
