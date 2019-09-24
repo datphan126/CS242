@@ -30,6 +30,6 @@ app.get('/', function (req, res) { return res.render('index', {
 }); });
 app.get('/order', order_controller_1.default);
 app.get('/userForm', function (req, res) { return res.render('user-form'); });
-app.post('/user', new_user_controller_1.default);
+app.post('/usersubmit', new_user_controller_1.default);
 app.get('/user', find_user_controller_1.default);
 app.listen(3000, function () { return console.log('The server is running on http://localhost:3000'); });

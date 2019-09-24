@@ -34,7 +34,7 @@ app.get('/order', orderController);
 
 app.get('/userForm', (req, res) => res.render('user-form'));
 
-app.post('/user', newUserController);
+app.post('/usersubmit', newUserController);
 app.get('/user', findUserController);
 
 app.listen(3000, () => console.log('The server is running on http://localhost:3000'));
