@@ -9,17 +9,14 @@ var body_parser_1 = __importDefault(require("body-parser"));
 var mongoose_1 = __importDefault(require("mongoose"));
 var passport_1 = __importDefault(require("passport"));
 var passport_facebook_1 = __importDefault(require("passport-facebook"));
-var order_controller_1 = __importDefault(require("./controllers/order-controller"));
-var new_user_controller_1 = __importDefault(require("./controllers/new-user-controller"));
-var find_user_controller_1 = __importDefault(require("./controllers/find-user-controller"));
 dotenv_1.default.config();
 // Initialize MongoDB
 mongoose_1.default.connect(process.env.DB_URI, { useNewUrlParser: true });
 var db = mongoose_1.default.connection;
 var app = express_1.default();
 app.use(passport_1.default.initialize());
-var FacebookStratergy = passport_facebook_1.default.Strategy;
-passport_1.default.use(new FacebookStratergy({
+var FacebookStrategy = passport_facebook_1.default.Strategy;
+passport_1.default.use(new FacebookStrategy({
     clientID: process.env.FACEBOOK_APP_ID,
     clientSecret: process.env.FACEBOOK_APP_SECRET,
     callbackURL: process.env.FACEBOOK_CALLBACK_URL
@@ -37,17 +34,17 @@ app.use(body_parser_1.default.urlencoded({ extended: true }));
 app.use(express_1.default.static('../public'));
 app.set('views', './views');
 app.set('view engine', 'ejs');
-// The router
-app.get('/', function (req, res) { return res.render('index', {
-    title: 'The index page title',
-    content: 'This is the content for the index page.'
-}); });
-app.get('/order', order_controller_1.default);
-app.get('/userForm', function (req, res) { return res.render('user-form'); });
-app.post('/user', new_user_controller_1.default);
-app.get('/user', find_user_controller_1.default);
+// Routers
+app.get('/', function (req, res) { return res.render('index'); });
 // Facebook login router
-app.get('/auth/facebook', passport_1.default.authenticate('facebook'));
+// Redirect the user to Facebook for authentication.  When complete,
+// Facebook will redirect the user back to the application at
+//     /auth/facebook/callback
+// app.get('/auth/facebook', passport.authenticate('facebook'));
+// Facebook will redirect the user to this URL after approval.  Finish the
+// authentication process by attempting to obtain an access token.  If
+// access was granted, the user will be logged in.  Otherwise,
+// authentication has failed.
 app.get('/auth/facebook/callback', passport_1.default.authenticate('facebook', {}), function (req, res) {
     res.redirect(process.env.FACEBOOK_REDIRECT_URL + "?user=" + JSON.stringify(req.user));
 });

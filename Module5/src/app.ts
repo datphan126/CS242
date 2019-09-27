@@ -5,10 +5,6 @@ import mongoose from 'mongoose';
 import passport from 'passport';
 import PassportFacebook from 'passport-facebook';
 
-import orderController from './controllers/order-controller';
-import newUserController from './controllers/new-user-controller';
-import findUserController from './controllers/find-user-controller';
-
 dotenv.config();
 
 // Initialize MongoDB
@@ -18,9 +14,9 @@ const db = mongoose.connection;
 const app = express();
 
 app.use(passport.initialize());
-const FacebookStratergy = PassportFacebook.Strategy;
+const FacebookStrategy = PassportFacebook.Strategy;
 
-passport.use(new FacebookStratergy({
+passport.use(new FacebookStrategy({
   clientID: <string>process.env.FACEBOOK_APP_ID,
   clientSecret: <string>process.env.FACEBOOK_APP_SECRET,
   callbackURL: <string>process.env.FACEBOOK_CALLBACK_URL
@@ -43,20 +39,26 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('../public'));
 app.set('views', './views');
 app.set('view engine', 'ejs');
-// The router
-app.get('/', (req, res) => res.render('index', {
-  title: 'The index page title',
-  content: 'This is the content for the index page.'
-}));
-app.get('/order', orderController);
 
-app.get('/userForm', (req, res) => res.render('user-form'));
+// Routers
+app.get('/', (req, res) => res.render('index'));
 
-app.post('/user', newUserController)
-app.get('/user', findUserController)
+// Facebook login routes
 
-// Facebook login router
+// Two routes are required for Facebook authentication. The first route redirects the user to Facebook.
+// The second route is the URL to which Facebook will redirect the user after they have logged in.
+
+// 1st route
+// Redirect the user to Facebook for authentication.  When complete,
+// Facebook will redirect the user back to the application at
+//     /auth/facebook/callback
 app.get('/auth/facebook', passport.authenticate('facebook'));
+
+// 2nd route
+// Facebook will redirect the user to this URL after approval.  Finish the
+// authentication process by attempting to obtain an access token.  If
+// access was granted, the user will be logged in.  Otherwise,
+// authentication has failed.
 app.get('/auth/facebook/callback', passport.authenticate('facebook', {}), (req, res) => {
   res.redirect(`${process.env.FACEBOOK_REDIRECT_URL}?user=${JSON.stringify(req.user)}`);
 });

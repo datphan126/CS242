@@ -1,0 +1,5 @@
+DB_URI=mongodb+srv://dustin:<password>@cluster0-8snqs.mongodb.net/test?retryWrites=true&w=majority
+GOOGLE_CONSUMER_KEY=505277636698553
+GOOGLE_CONSUMER_SECRET=
+GOOGLE_CALLBACK_URL=http://localhost:<port>/auth/facebook/callback
+GOOGLE_REDIRECT_URL=http://localhost:<port>/facebookLoginSuccess

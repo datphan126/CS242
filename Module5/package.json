@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "tsc": "tsc && cp ./src/.env ./public && cp -r ./src/views ./public/views && cp -r ./src/imgs ./public/imgs",
+    "tsc": "tsc && cp ./src/.env ./public && cp -r ./src/views ./public && cp -r ./src/imgs ./public",
     "copyViews": "cp -R src/views public"
   },
   "keywords": [],

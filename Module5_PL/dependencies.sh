@@ -6,3 +6,5 @@ npm i --save ejs
 npm i --save body-parser
 npm i --save passport
 npm i --save-dev @types/passport
+npm i --save-dev @types/passport-google-oauth
+npm i --save passport-google-oauth
