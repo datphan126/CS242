@@ -1,0 +1,11 @@
+.paymentTable {
+    text-align: left;
+    border: 1px solid black;
+    margin: 15px 10px;
+}
+
+.paymentTable td,
+.paymentTable tf {
+    padding: 5px 10px;
+    border: 1px solid black;
+}
