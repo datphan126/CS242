@@ -1,0 +1,1 @@
+We just installed MongoDB on the EC2 instance in this module.
