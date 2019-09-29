@@ -1,5 +1,5 @@
 DB_URI=mongodb+srv://dustin:<password>@cluster0-8snqs.mongodb.net/test?retryWrites=true&w=majority
-GOOGLE_CONSUMER_KEY=505277636698553
-GOOGLE_CONSUMER_SECRET=
+GOOGLE_CLIENT_ID=425169160567-86pme9q40mfge31e4slie56j0eufp6q1.apps.googleusercontent.com
+GOOGLE_CLIENT_SECRET=
 GOOGLE_CALLBACK_URL=http://localhost:<port>/auth/google/callback
 GOOGLE_REDIRECT_URL=http://localhost:<port>/googleLoginSuccess

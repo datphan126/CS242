@@ -55,7 +55,6 @@ app.get('/auth/google/callback', passport_1.default.authenticate('google', {}), 
 });
 app.get('/googleLoginSuccess', function (req, res) {
     var user = JSON.parse(req.query.user);
-    console.log(req.query.user);
     res.render('google-login-success', {
         displayName: "" + user.displayName, email: "" + user.emails[0].value
     });

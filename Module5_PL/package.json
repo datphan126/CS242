@@ -2,7 +2,7 @@
   "name": "module5_pl",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "tsc": "tsc && cp ./src/.env ./public && cp -r ./src/views ./public && cp -r ./src/imgs ./public"
   },
