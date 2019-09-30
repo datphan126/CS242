@@ -8,11 +8,17 @@ import addBookController from './controllers/add-book';
 import addBirthdayCard from './controllers/add-birthday-card';
 import fetchBooks from './controllers/fetch-books';
 import fetchBirthdayCards from './controllers/fetch-birthday-cards';
+import fetchBook from './controllers/fetch-book';
+import updateBookController from './controllers/update-book';
+import deleteBookController from './controllers/delete-book';
 
 dotenv.config();
 
 // Initialize MongoDB
 mongoose.connect(process.env.DB_URI as string, { useNewUrlParser: true });
+// Make Mongoose use `findOneAndUpdate()`. Note that this option is `true`
+// by default, you need to set it to false.
+mongoose.set('useFindAndModify', false);
 const db = mongoose.connection;
 
 const app = express();
@@ -25,12 +31,19 @@ app.use(bodyParser.json());
 //support parsing of application/x-www-form-urlencoded post data
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// Routes
+// Book Routes
 app.post('/book', addBookController);
 
-app.post('/birthdayCard', addBirthdayCard);
-
 app.get('/books', fetchBooks);
+
+app.get('/book/:id', fetchBook);
+
+app.put('/book', updateBookController);
+
+app.delete('/book/:id', deleteBookController);
+
+// Birthday Card Routes
+app.post('/birthdayCard', addBirthdayCard);
 
 app.get('/birthdayCards', fetchBirthdayCards);
 
