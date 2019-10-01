@@ -27,7 +27,7 @@ mongoose_1.default.set('useFindAndModify', false);
 var db = mongoose_1.default.connection;
 var app = express_1.default();
 // Set the Access-Control-Allow-Origin to http://localhost:4200 to allow our Angular app call the API
-app.use(cors_1.default({ origin: 'http://localhost:4200' }));
+app.use(cors_1.default({ origin: "http://localhost:" + process.env.FRONTEND_PORT }));
 // support parsing of application/json type post data
 app.use(body_parser_1.default.json());
 //support parsing of application/x-www-form-urlencoded post data
@@ -41,8 +41,8 @@ app.delete('/book/:id', delete_book_1.default);
 // Birthday Card Routes
 app.post('/birthdayCard', add_birthday_card_1.default);
 app.get('/birthdayCards', fetch_birthday_cards_1.default);
-app.get('/birthdaycard/:id', fetch_birthday_card_1.default);
-app.put('/birthdaycard', update_birthday_card_1.default);
-app.delete('/birthdaycard/:id', delete_birthday_card_1.default);
-app.listen(process.env.PORT, function () { return console.log("The server is running at http://localhost:" + process.env.PORT); });
+app.get('/birthdayCard/:id', fetch_birthday_card_1.default);
+app.put('/birthdayCard', update_birthday_card_1.default);
+app.delete('/birthdayCard/:id', delete_birthday_card_1.default);
+app.listen(process.env.BACKEND_PORT, function () { return console.log("The server is running at http://localhost:" + process.env.BACKEND_PORT); });
 //# sourceMappingURL=app.js.map

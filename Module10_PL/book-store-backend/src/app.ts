@@ -27,7 +27,7 @@ const db = mongoose.connection;
 const app = express();
 
 // Set the Access-Control-Allow-Origin to http://localhost:4200 to allow our Angular app call the API
-app.use(cors({ origin: 'http://localhost:4200' }));
+app.use(cors({ origin: `http://localhost:${process.env.FRONTEND_PORT}` }));
 
 // support parsing of application/json type post data
 app.use(bodyParser.json());
@@ -50,10 +50,10 @@ app.post('/birthdayCard', addBirthdayCard);
 
 app.get('/birthdayCards', fetchBirthdayCards);
 
-app.get('/birthdaycard/:id', fetchBirthdayCard);
+app.get('/birthdayCard/:id', fetchBirthdayCard);
 
-app.put('/birthdaycard', updateBirthdayCardController);
+app.put('/birthdayCard', updateBirthdayCardController);
 
-app.delete('/birthdaycard/:id', deleteBirthdayCardController);
+app.delete('/birthdayCard/:id', deleteBirthdayCardController);
 
-app.listen(process.env.PORT, () => console.log(`The server is running at http://localhost:${process.env.PORT}`));
+app.listen(process.env.BACKEND_PORT, () => console.log(`The server is running at http://localhost:${process.env.BACKEND_PORT}`));
