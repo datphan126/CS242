@@ -9,7 +9,7 @@
             "request": "launch",
             "name": "Frontend",
             "url": "http://localhost:4200",
-            "webRoot": "${workspaceFolder}/Module9_PL/book-store"
+            "webRoot": "${workspaceFolder}/Module10_PL/book-store"
         }
     ]
 }
