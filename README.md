@@ -25,14 +25,17 @@ Module 10: MEAN Stack - Update and Delete
 The hands-on practice and lab exercises of those modules were done by Dat Phan.
 
 # How to run MEAN stack application in Module 8-10
-For the backend server, navigate to the folder book-store-backend/public, and run this command:
+1) Setup Node on your machine
+2) Navigate to the folder book-store-backend
+3) Run the command `npm i` to install all required dependencies for the back-end server
+4) Navigate to book-store-backend/src
+5) Run `npm run tsc` to build your bacnkend's code
+6) Navigate to book-store-backend/public
+7) Start the backend server:
 **`node app.js`**
-
-
-For the front-end server, navigate to the folder book-store, and run this command:
+8) Navigate to the folder book-store
+9) Run the command `npm i` to install all required dependencies for the front-end server
+10) Start the front-end server:
 **`ng serve`**
-
-
-The front-end server can be accessed through this link:
-
-http://localhost:4200
+11) The front-end server can be accessed through this link:
+[http://localhost:4200](http://localhost:4200)
