@@ -8,11 +8,11 @@ const app = express();
 
 app.use(logger);
 app.use(timestamp);
-app.use(express.static('../public'));
+app.use(express.static('../public')); // Allows users to access resources located under the specified directory
 app.set('views', './views');
 app.set('view engine', 'ejs');
 // Router handlers
-app.get('/', (req, res, next) => {
+app.get('/', (req, res) => {
     res.render('index', {
         title: 'The index page title',
         content: 'This is the content for the index page.'

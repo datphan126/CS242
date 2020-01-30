@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 
-const handler = (req: Request, res: Response, next: Function) => {
+const handler = (req: Request, res: Response) => {
     res.render('address',{
         name:'Dustin',
         phoneNumber: '123-4567-8975',

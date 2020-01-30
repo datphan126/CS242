@@ -1,2 +1,4 @@
 DB_URI=mongodb+srv://dustin:<password>@cluster0-8snqs.mongodb.net/dustin?retryWrites=true&w=majority
-port=8080
+BACKEND_PORT=8080
+FRONT_END_SERVER_IP=localhost
+FRONT_END_PORT=4200

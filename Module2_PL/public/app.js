@@ -10,11 +10,11 @@ var timestamp_1 = __importDefault(require("./middlewares/timestamp"));
 var app = express_1.default();
 app.use(logging_1.default);
 app.use(timestamp_1.default);
-app.use(express_1.default.static('../public'));
+app.use(express_1.default.static('../public')); // Allows users to access resources located under the specified directory
 app.set('views', './views');
 app.set('view engine', 'ejs');
 // Router handlers
-app.get('/', function (req, res, next) {
+app.get('/', function (req, res) {
     res.render('index', {
         title: 'The index page title',
         content: 'This is the content for the index page.'

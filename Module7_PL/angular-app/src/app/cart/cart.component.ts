@@ -21,7 +21,7 @@ export class CartComponent implements OnInit {
     { id: '1', name: 'Beats Headphones', price: 30, qty: 4 },
     { id: '2', name: 'Razer Mouse', price: 60, qty: 7 },
     { id: '3', name: 'Intel Core i9', price: 500, qty: 15 },
-    { id: '4', name: 'Corshair 4x8GB', price: 450, qty: 10 },
+    { id: '4', name: 'Corsair 4x8GB', price: 450, qty: 10 },
   ];
 
   constructor() { }

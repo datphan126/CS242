@@ -5,11 +5,13 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class ApiService {
-  private ADD_NEW_BOOK_API = 'http://localhost:8080/book';
-  private ADD_NEW_BIRTHDAY_CARD_API = 'http://localhost:8080/birthdayCard';
-  private FETCH_BOOKS_API = 'http://localhost:8080/books';
-  private FETCH_BIRTHDAY_CARDS_API = 'http://localhost:8080/birthdayCards';
-  private FECTH_BOOK_API = 'http://localhost:8080/book';
+  private BACKEND_SERVER_IP = 'localhost';
+  private BACKEND_SERVER_PORT = '8080';
+  private ADD_NEW_BOOK_API = 'http://' + this.BACKEND_SERVER_IP + ':' + this.BACKEND_SERVER_PORT + '/book';
+  private ADD_NEW_BIRTHDAY_CARD_API = 'http://' + this.BACKEND_SERVER_IP + ':' + this.BACKEND_SERVER_PORT + '/birthdayCard';
+  private FETCH_BOOKS_API = 'http://' + this.BACKEND_SERVER_IP + ':' + this.BACKEND_SERVER_PORT + '/books';
+  private FETCH_BIRTHDAY_CARDS_API = 'http://' + this.BACKEND_SERVER_IP + ':' + this.BACKEND_SERVER_PORT + '/birthdayCards';
+  private FECTH_BOOK_API = 'http://' + this.BACKEND_SERVER_IP + ':' + this.BACKEND_SERVER_PORT + '/book';
   private UPDATE_BOOK_API = this.ADD_NEW_BOOK_API;
   private DELETE_BOOK_API = this.ADD_NEW_BOOK_API;
 
