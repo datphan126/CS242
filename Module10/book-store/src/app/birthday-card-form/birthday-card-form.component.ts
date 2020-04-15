@@ -9,10 +9,10 @@ import { ApiService } from '../api.service';
   styleUrls: ['./birthday-card-form.component.css']
 })
 export class BirthdayCardFormComponent implements OnInit {
-  private title: string = '';
-  private material: string = '';
-  private picture: string = '';
-  private price: number = 0;
+  public title: string = '';
+  public material: string = '';
+  public picture: string = '';
+  public price: number = 0;
   static URL_REGEXP = /^http(s*):\/\/.+/;
 
   constructor(
